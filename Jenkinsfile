@@ -20,7 +20,7 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'docker run -p 8080:8080 -it imagen/loca'
+        sh 'docker run -p 8080:8080 imagen/loca'
       }
     }
 

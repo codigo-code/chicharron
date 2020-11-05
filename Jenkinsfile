@@ -14,15 +14,18 @@ pipeline {
 
     stage('generate image') {
       steps {
-        sh 'docker build -t ccutn/image .'
+        sh 'docker build -t ${imagen} .'
       }
     }
 
     stage('deploy') {
       steps {
-        sh 'docker run -p 8080:8080 -it ccutn/image'
+        sh 'docker run -p 8080:8080 -it ${imagen}'
       }
     }
 
+  }
+  environment {
+    imagen = 'ccutn-image'
   }
 }
